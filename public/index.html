@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPTX Fusion - Unir PowerPoint</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="container">
+        <header>
+            <h1>PPTX <span class="gradient-text">Fusion</span></h1>
+            <p>Une tus presentaciones PowerPoint en un solo archivo.</p>
+        </header>
+
+        <section class="upload-area" id="drop-zone">
+            <input type="file" id="file-input" multiple accept=".pptx" hidden>
+            <div class="icon-container">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+            </div>
+            <h3>Arrastra tus archivos aquí</h3>
+            <p>o <span class="browse-btn" onclick="document.getElementById('file-input').click()">busca en tu equipo</span></p>
+        </section>
+
+        <section class="file-list-container" id="file-list-container" style="display: none;">
+            <h2>Archivos seleccionados</h2>
+            <ul id="file-list" class="file-list">
+                <!-- Items added by JS -->
+            </ul>
+        </section>
+
+        <div class="actions">
+            <button id="merge-btn" class="primary-btn" disabled>Unir Archivos</button>
+        </div>
+
+        <section id="result-area" class="result-area" style="display: none;">
+            <div class="success-card">
+                <div class="check-icon">✓</div>
+                <h2>¡Listo!</h2>
+                <p>Tus archivos han sido unidos correctamente.</p>
+                <a id="download-link" href="#" class="download-btn" download>
+                    Descargar Fusionado
+                </a>
+                <button class="reset-btn" onclick="location.reload()">Unir más</button>
+            </div>
+        </section>
+        
+        <div id="loading-overlay" class="loading-overlay" style="display: none;">
+            <div class="spinner"></div>
+            <p>Procesando diapositivas...</p>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
